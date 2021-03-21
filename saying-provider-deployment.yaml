@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
         - name: saying-provider
-          image: saying-provider:latest
-          imagePullPolicy: Never
+          image: amberlight303/saying-provider:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 9090

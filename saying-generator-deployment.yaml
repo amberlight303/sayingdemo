@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: saying-generator
-          image: saying-generator:latest
-          imagePullPolicy: Never
+          image: amberlight303/saying-generator:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 9091
