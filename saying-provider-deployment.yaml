@@ -1,0 +1,32 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: saying-provider
+spec:
+  selector:
+    app: saying-provider
+  ports:
+    - protocol: TCP
+      port: 9090
+      nodePort: 30001
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saying-provider
+spec:
+  selector:
+    matchLabels:
+      app: saying-provider
+  template:
+    metadata:
+      labels:
+        app: saying-provider
+    spec:
+      containers:
+        - name: saying-provider
+          image: saying-provider:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 9090
